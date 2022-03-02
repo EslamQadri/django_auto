@@ -1,0 +1,205 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>ComingSoon - Code Station</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <link href="{%static 'img/favicon.png' filename= 'favicon.ico'%}" rel="icon">
+  <link href="{%static 'img/apple-touch-icon.png'%} " rel="apple-touch-icon">
+
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i"
+    rel="stylesheet">
+
+  <link href=" {% static 'vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css'%}" rel="stylesheet">
+
+  <link href="{% static 'css/style.css'%}" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="d-flex align-items-center">
+    <div class="container d-flex flex-column align-items-center">
+
+      <h1>ComingSoon</h1>
+      <h2>We're working hard to improve our website and we'll ready to launch after</h2>
+      <div class="countdown d-flex justify-content-center" data-count="2022/03/11">
+        <div>
+          <h3>%d</h3>
+          <h4>Days</h4>
+        </div>
+        <div>
+          <h3>%h</h3>
+          <h4>Hours</h4>
+        </div>
+        <div>
+          <h3>%m</h3>
+          <h4>Minutes</h4>
+        </div>
+        <div>
+          <h3>%s</h3>
+          <h4>Seconds</h4>
+        </div>
+      </div>
+  
+        
+
+      <div class="subscribe">
+        <h4>Subscribe now to get the latest updates!</h4>
+        <form method="post"  class = "php-email-form" id ="email_form" >
+          {%csrf_token%}
+          <div class="subscribe-form">
+         
+            {{emailform}}
+            <input id="subscribe-btn" type="submit" name='Submit' value="Subscribe">
+          </div>
+          <div class="mt-2">
+            <div class="loading">Loading</div>
+            <div class="error-message"></div>
+            <div class="sent-message">Your notification request was sent. Thank you!</div>
+          </div>
+        </form>
+      </div>
+
+      <div class="social-links text-center">
+        <a href="" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+      </div>
+
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!--  About Us Section  -->
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="row content">
+          <div class="col-lg-6">
+            <h2>Code Station</h2>
+            <h3>Work Smart not Hard</h3>
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0">
+            <p>
+              We pride ourselves on delivering compelling, digital marketing services. Our winning solutions and
+              experiences help many of our clients interact and engage with their customers in the best possible way.
+            </p>
+            <ul>
+              <li><i class="bi bi-check"></i> Moblie Applications </li>
+              <li><i class="bi bi-check"></i> Web Design & Development</li>
+              <li><i class="bi bi-check"></i> Digital Marketing</li>
+              <li><i class="bi bi-check"></i> Social Media Managment</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======= Contact Us Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Contact Us</h2>
+        </div>
+
+        <div class="row justify-content-center">
+
+          <div class="col-lg-10">
+
+            <div class="info-wrap">
+              <div class="row">
+                <div class="col-lg-4 info">
+                  <i class="bi bi-geo-alt"></i>
+                  <h4>Location:</h4>
+                  <p>Merghani Street<br>Heliopolis, Egypt</p>
+                </div>
+
+                <div class="col-lg-4 info mt-4 mt-lg-0">
+                  <i class="bi bi-envelope"></i>
+                  <h4>Email:</h4>
+                  <p>Code Staiton@example.com<br>contact@example.com</p>
+                </div>
+
+                <div class="col-lg-4 info mt-4 mt-lg-0">
+                  <i class="bi bi-phone"></i>
+                  <h4>Call:</h4>
+                  <p>+20 1144720017<br>+20 1061601974</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+        
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+         
+            <form method="post" class ="php-email-form "  id="message_form">
+           
+              {%csrf_token%}
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  {{MessageForm.name}}
+                </div>
+                <div class="col-md-6 form-group mt-3 mt-md-0">
+                  {{MessageForm.emailm}}
+                </div>
+              </div>
+              <div class="form-group mt-3">
+                {{MessageForm.subject}}
+              </div>
+              <div class="form-group mt-3">
+               {{MessageForm.message}}
+              </div>
+             
+              <div class="text-center">
+                
+                <input  type="submit" name="Send"  value ="Send message" id ='send_btn' >
+                </div>
+              </form>
+            
+              
+          </div>
+
+        </div>
+     
+      </div>
+    </section><!-- End Contact Us Section -->
+
+  </main><!-- End #main -->
+
+  <footer id="footer">
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Code Station</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script src="{% static 'js/main.js'%}"></script>
+  <script src="{% static 'js/ajax.js'%}"></script>
+  
+</body>
+{
+</html>
